@@ -4,7 +4,10 @@ import com.sun.org.apache.bcel.internal.generic.RETURN;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import org.wang.enums.MessageType;
 import org.wang.protocal.MessageHeader;
+import org.wang.request.PublishRequest;
+import org.wang.serialization.Serialization;
 import org.wang.serialization.SerializationFactory;
 
 import java.nio.charset.StandardCharsets;
@@ -48,5 +51,16 @@ public class Decoder extends ByteToMessageDecoder {
                 .build();
 
         // todo
+        Serialization serialization = SerializationFactory.getSerialization();
+        MessageType msgType = MessageType.findByType(type);
+        switch (msgType) {
+            case PUBLISH:
+                // 生产消息
+                PublishRequest request = serialization.deserialize(data, PublishRequest.class);
+
+            case ACK:
+            default:
+                // todo
+        }
     }
 }

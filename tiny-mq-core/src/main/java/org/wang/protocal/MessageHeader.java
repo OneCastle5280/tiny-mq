@@ -2,6 +2,7 @@ package org.wang.protocal;
 
 import lombok.Builder;
 import lombok.Data;
+import org.wang.enums.MessageType;
 
 /**
  * @author wangjiabao
