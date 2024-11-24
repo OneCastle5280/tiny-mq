@@ -1,4 +1,4 @@
-package org.wang.domain;
+package org.wang.protocal;
 
 import lombok.Getter;
 
@@ -7,6 +7,8 @@ import lombok.Getter;
  */
 @Getter
 public enum MessageType {
+
+
 
 
     ;

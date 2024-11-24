@@ -48,9 +48,50 @@ Reactor 模型，是一个异步事件驱动模型；
 
 Reactor 负责接受所有事件，然后根据事件类型去做分发，所有的连接事件都由 accept 处理，读写事件则分发给到业务 handler 去处理。
 
+### 2.2 数据存储
+#### 2.2.1 元数据存储
+消息队列元数据包含：
+1. Broker
+2. Topic
+3. Producer
+4. Consumer
+
+其中，Broker 和 Topic 的元数据存储在 `MetaSever` 中，Producer 和 Consumer 的元数据存储在 `Broker` 中
+![img.png](元数据存储.png)
+
+Producer 和 Consumer 的元数据存储在 Broker 主要是考虑到 
+
+#### 2.2.2 消息持久化
 ### 2.2 生产者
-
-
-
 ### 2.3 消费者
-### 2.4 数据存储
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

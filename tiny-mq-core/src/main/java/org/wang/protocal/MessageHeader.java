@@ -22,7 +22,7 @@ public class MessageHeader {
      */
     private byte version;
     /**
-     * 消息类型 {@link org.wang.domain.MessageType}
+     * 消息类型 {@link MessageType}
      */
     private byte type;
     /**

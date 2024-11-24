@@ -10,6 +10,11 @@
     </parent>
 
     <artifactId>tiny-mq-meta-server</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>../tiny-mq-core</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
