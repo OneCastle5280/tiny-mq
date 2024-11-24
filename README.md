@@ -57,19 +57,22 @@ Reactor 负责接受所有事件，然后根据事件类型去做分发，所有
 4. Consumer
 
 其中，Broker 和 Topic 的元数据存储在 `MetaSever` 中，Producer 和 Consumer 的元数据存储在 `Broker` 中
+
 ![img.png](元数据存储.png)
 
 #### 2.2.2 消息持久化
 TODO 1.0 暂不考虑做数据持久化
 ### 2.2 生产者
 发送消息的流程如下：
+
 ![img.png](producer.png)
+
 生产者对外提供统一的 API进行使用。对于使用方来说，只需要提供 Topic 信息即可。
 
 #### 2.2.1 负载均衡
 Topic 在哪个 Broker 上，这个映射关系存储在 MetaServer 上，Producer 在发送消息之前需要从 MetaServer 获取映射关系（为了减少频繁请求，我们可以在本地缓存一份，然后定时刷新），然后根据路由规则选择好 Broker 经过网络模块，将消息发送出去。
 
-消息发送选择哪一个 Partition 路由规则一般有以下几种：
+消息发送选择哪一个 Partition 路由规则一般有以下方式：
 * 轮询
   * 可以实现将消息均匀地分布在 Partition 上，缺点是只能在 Topic 维度做到顺序消费，而无法在 Partition 维度做到顺序消费
 * 哈希
